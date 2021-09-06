@@ -1,0 +1,43 @@
+{
+  "name": "dealers_choice_react_redux_thunks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build:dev": "npm run build -- --watch --mode=development",
+    "start:dev": "npm run build:dev & nodemon server --ignore dist/ --ignore src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spenny-hp/dealers_choice_react_redux_thunks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spenny-hp/dealers_choice_react_redux_thunks/issues"
+  },
+  "homepage": "https://github.com/spenny-hp/dealers_choice_react_redux_thunks#readme",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-react": "^7.14.5",
+    "axios": "^0.21.4",
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "sequelize": "^6.6.5"
+  }
+}

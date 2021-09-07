@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-
 const Sequelize = require("sequelize");
 const { STRING, INTEGER } = Sequelize.DataTypes;
+
 const conn = new Sequelize(
   process.env.DATABASE_URL || "postgres://localhost/photos"
 );
@@ -51,16 +51,12 @@ async function syncAndSeed() {
   );
 }
 
-app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "dist")));
+
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
-
-const port = process.env.PORT || 3000;
-
 app.get("/api/photos", async (req, res, next) => {
   try {
     const restaurants = await Photo.findAll();
-    console.log(JSON.stringify(restaurants, null, 2));
     res.send(restaurants);
   } catch (err) {
     next(err);
@@ -68,10 +64,10 @@ app.get("/api/photos", async (req, res, next) => {
 });
 
 const init = async () => {
+  const port = process.env.PORT || 3850;
   app.listen(port, () =>
     console.log(`
-    listening on port ${port} @ http://localhost:3000
-    
+    listening on port ${port} @ http://localhost:${port}  
     `)
   );
   await syncAndSeed();

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect, Provider } from "react-redux";
 import store, { getPhotos } from "./store";
+import axios from "axios";
 
 const _Photos = ({ photos }) => {
   return photos.map((photo) => {
@@ -35,7 +36,6 @@ class _App extends Component {
     this.props.getPhotos();
   }
   render() {
-    const { photos } = this.props;
     return (
       <div>
         <h1>My Photos</h1>

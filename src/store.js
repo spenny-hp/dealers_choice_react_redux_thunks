@@ -5,7 +5,7 @@ import axios from "axios";
 
 const GET_PHOTOS = "GET_PHOTOS";
 
-const photos = (state = [], action) => {
+const photoReducer = (state = [], action) => {
   switch (action) {
     case GET_PHOTOS:
       return (state = action.photos);
@@ -19,7 +19,7 @@ const photos = (state = [], action) => {
 };
 
 const reducer = combineReducers({
-  photos,
+  photos: photoReducer,
 });
 
 const store = createStore(

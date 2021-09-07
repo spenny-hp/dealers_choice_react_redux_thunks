@@ -6,7 +6,7 @@ import axios from "axios";
 const GET_PHOTOS = "GET_PHOTOS";
 
 const photoReducer = (state = [], action) => {
-  switch (action) {
+  switch (action.type) {
     case GET_PHOTOS:
       return (state = action.photos);
       break;

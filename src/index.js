@@ -7,9 +7,9 @@ import axios from "axios";
 const _Photos = ({ photos }) => {
   return photos.map((photo) => {
     return (
-      <div key={photo.id}>
-        <img src={photo.imageLink} alt={photo.name}></img>
-        {photo.name}
+      <div key={photo.id} className="photo">
+        <span>{photo.name}</span>
+        <span><img src={photo.imageLink} alt={photo.name}></img></span>
       </div>
     );
   });
@@ -29,8 +29,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const Photos = connect(mapStateToProps, mapDispatchToProps)(_Photos);
-
 class _App extends Component {
   componentDidMount() {
     this.props.getPhotos();
@@ -46,6 +44,7 @@ class _App extends Component {
   }
 }
 
+const Photos = connect(mapStateToProps, mapDispatchToProps)(_Photos);
 const App = connect(mapStateToProps, mapDispatchToProps)(_App);
 
 render(

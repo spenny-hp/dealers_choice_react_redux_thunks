@@ -20,7 +20,7 @@ const photos = [
 
 photos.forEach((photo) => {
   const link = photo.name.toLowerCase().replace(/ /g, "-");
-  photo.imageLink = `./public/${link}.JPG`;
+  photo.imageLink = `${link}.JPG`;
 });
 
 const Photo = conn.define("photo", {
@@ -52,6 +52,7 @@ async function syncAndSeed() {
 }
 
 app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
 app.get("/api/photos", async (req, res, next) => {

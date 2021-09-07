@@ -3,25 +3,33 @@
 }
 
 img {
-    width: 800px;
-    height: 600px;
+    width: 400px;
+    height: 250px;
 }
 
 .photo {
     display: flex;
     justify-content: space-between;
     border: solid black 1px;
-    padding-bottom: 1rem;
-    border-bottom: 1rem;
+    flex: 1;
 }
 
 span {
     text-shadow: aliceblue;
     text-indent: 2rem;
     font-size: 3rem;
+    text-align: center;
+}
+
+.description {
+    text-align: center;
 }
 
 h1 {
     font-size: 7rem;
     text-align: center;
+}
+
+button {
+    cursor: pointer;
 }

@@ -8,8 +8,9 @@ const _Photos = ({ photos }) => {
   return photos.map((photo) => {
     return (
       <div key={photo.id} className="photo">
-        <span>{photo.name}</span>
         <span><img src={photo.imageLink} alt={photo.name}></img></span>
+        <span className='description'>{photo.name}</span>
+        <span>Remove? <br/> <button>X</button></span>
       </div>
     );
   });

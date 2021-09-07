@@ -4,7 +4,21 @@ import { connect, Provider } from "react-redux";
 import store, { getPhotos } from "./store";
 
 const _Photos = ({ photos }) => {
-  return photos.map((photo) => <div key={photo.id}>{photo.name}</div>);
+  return photos.map((photo) => {
+    return (
+      <div key={photo.id}>
+        <img src={photo.imageLink} alt={photo.name}></img>
+        {photo.name}
+      </div>
+    );
+  });
+};
+
+// get state
+const mapStateToProps = (state) => {
+  return {
+    photos: state.photos,
+  };
 };
 
 // set state
@@ -14,15 +28,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = (state) => {
-  return {
-    photos: state.photos,
-  };
-};
-
 const Photos = connect(mapStateToProps, mapDispatchToProps)(_Photos);
 
-class App extends Component {
+class _App extends Component {
   componentDidMount() {
     this.props.getPhotos();
   }
@@ -37,6 +45,8 @@ class App extends Component {
     );
   }
 }
+
+const App = connect(mapStateToProps, mapDispatchToProps)(_App);
 
 render(
   <Provider store={store}>
